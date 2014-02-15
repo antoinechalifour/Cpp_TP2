@@ -7,12 +7,20 @@ class Chaine{
     int size;
 
     public:
+    //Constructeurs
     Chaine();
     Chaine(char* str);
     Chaine(const Chaine& obj);
     ~Chaine();
+
+    //Operateurs
+    char& operator[](int i);
+
+    //Getters
     unsigned int getSize() const;
     char* getString() const;
+
+    //Auyres méthodes
     void addString(char* str);
     void replaceString(char* str);
 };

@@ -3,6 +3,7 @@
 #include "B.h"
 #include "Point.h"
 #include "Chaine.h"
+#include "TableauException.h"
 
 using namespace std;
 
@@ -70,10 +71,31 @@ int main()
     */
 
     //2 Question 2
+    /*
     Chaine c1("Ma chaine");
     Chaine c2("Def");
     cout<<"valeur de c1 : "<<c1<<endl;
     cin>>c2;
     cout<<"valeur de c2 : "<<c2<<endl;
+    */
+
+    //3 Question 1
+    /*
+    Chaine c1("Une Chaine");
+
+    char c=c1[4];
+    cout<<"Le troisieme caractere de ma chaine est : "<<c1[2]<<endl;
+    c1[2]=' ';
+    cout<<"Le troisieme caractere de ma chaine est : "<<c1[2]<<endl;
+    */
+
+    //3 Question 2
+    Chaine c1("Une chaine");
+    try{
+        char c=c1[30];
+    }
+    catch (TableauException e){
+        cout<<e.getCode()<< " - "<<e.getMsg();
+    }
     return 0;
 }

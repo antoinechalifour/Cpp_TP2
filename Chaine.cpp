@@ -1,6 +1,7 @@
 #include <string.h>
 #include <iostream>
 #include <stdlib.h>
+#include "TableauException.h"
 
 #ifndef _Chaine_h
 #define _Chaine_h
@@ -38,6 +39,21 @@ Chaine::~Chaine(){
     free(string);
 }
 
+//Operateur
+char& Chaine::operator[](int i){
+    //if(i<0 || i>=size) throw -1;
+    if(i<0){
+        TableauException e(TableauException::Underflow, "Index inferieur a 0\n");
+        throw e;
+    }
+    if(i>=size){
+        TableauException e(TableauException::Overflow, "Index superieur a la taille de la chaine\n");
+        throw e;
+    }
+    return string[i];
+}
+
+//Getters
 unsigned int Chaine::getSize() const{
     return size;
 }
