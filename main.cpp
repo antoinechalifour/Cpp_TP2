@@ -2,6 +2,7 @@
 #include "A.h"
 #include "B.h"
 #include "Point.h"
+#include "Chaine.h"
 
 using namespace std;
 
@@ -13,6 +14,19 @@ Point CreerPoint(double x, double y, double z, char* label){
 Point CreerPoint(Point p){
     Point p1(p);
     return p1;
+}
+
+ostream& operator<<(ostream& os, const Chaine& c){
+    os<<c.getString();
+    return os;
+}
+
+istream& operator>>(istream& is, Chaine& c){
+    char tmp[128];
+    is>>tmp;
+
+    c.replaceString(tmp);
+    return is;
 }
 
 int main()
@@ -55,5 +69,11 @@ int main()
     cout<<"La distance entre p1 et p2 est "<<dist<<endl;
     */
 
+    //2 Question 2
+    Chaine c1("Ma chaine");
+    Chaine c2("Def");
+    cout<<"valeur de c1 : "<<c1<<endl;
+    cin>>c2;
+    cout<<"valeur de c2 : "<<c2<<endl;
     return 0;
 }
