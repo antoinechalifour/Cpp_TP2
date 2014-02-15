@@ -4,6 +4,7 @@
 #include "Point.h"
 #include "Chaine.h"
 #include "TableauException.h"
+#include "CVector.h"
 
 using namespace std;
 
@@ -90,12 +91,30 @@ int main()
     */
 
     //3 Question 2
+    /*
     Chaine c1("Une chaine");
     try{
         char c=c1[30];
     }
     catch (TableauException e){
         cout<<e.getCode()<< " - "<<e.getMsg();
+    }
+    */
+
+    //4 (bonus)
+    CVector tab;
+    try{
+        cout<<"Taille du tableau juste initialise : "<<tab.getSize()<<endl;
+        tab.addElement(0);
+        tab.addElement(1);
+        tab.addElement(2);
+
+        for(int i=0 ; i<tab.getSize() ; i++){
+            cout<<"tab["<<i<<"] -> "<<tab[i]<<endl;
+        }
+    }
+    catch(TableauException e){
+        cout<<e.getCode()<<" - "<<e.getMsg()<<endl;
     }
     return 0;
 }
