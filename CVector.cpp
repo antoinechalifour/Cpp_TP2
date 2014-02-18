@@ -9,7 +9,7 @@ CVector::CVector(){
 }
 
 CVector::~CVector(){
-    if(data==NULL) free(data);
+    if(data!=NULL) free(data);
 }
 
 int& CVector::operator[](int i){
